@@ -5,6 +5,35 @@
   font-family: "Karla", sans-serif;
   font-size: 16px;
 }
+@font-face {
+  font-family: "Karla";
+  font-style: normal;
+  font-weight: normal;
+  src: url("/assets/fonts/Karla-VariableFont_wght.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Karla";
+  font-style: normal;
+  font-weight: bold;
+  src: url("/assets/fonts/static/Karla-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Karla";
+  font-style: italic;
+  font-weight: normal;
+  src: url("/assets/fonts/Karla-Italic-VariableFont_wght.ttf")
+    format("truetype");
+}
+
+@font-face {
+  font-family: "Karla";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/assets/fonts/static/Karla-Regular.ttf") format("truetype");
+}
+
 :root {
   /*
   Primary
@@ -32,12 +61,11 @@ h2 {
 .form-container {
   background-color: var(--White);
   width: 32rem;
-  height: 36rem;
   display: flex;
   justify-content: center;
-  margin-top: 5em;
+  margin-top: 1.5em;
   padding: 1em;
-  border-radius: 0.5em;
+  border-radius: 0.9em;
 }
 .full-name {
   display: flex;
@@ -54,6 +82,14 @@ textarea {
   margin-top: 8px;
   border: 1px solid var(--Grey-medium);
   border-radius: 5px;
+}
+
+input[type="text"]:hover,
+input[type="email"]:hover,
+textarea:hover {
+  cursor: pointer;
+  outline: 1px solid var(--Green-medium);
+  border: 1px solid var(--Green-medium);
 }
 input:focus,
 textarea:focus {
@@ -84,7 +120,22 @@ textarea:focus {
   width: 50%;
   padding: 8px;
   border-radius: 5px;
+  cursor: pointer;
 }
+.radio-option:hover {
+  outline: 1px solid var(--Green-medium);
+  border: 1px solid var(--Green-medium);
+}
+.radio-option:active {
+  background-color: var(--Green-lighter);
+}
+
+input[type="radio"]:checked,
+input[type="checkbox"]:checked {
+  background-color: var(--Green-medium);
+  border: 1px solid var(--Green-medium);
+}
+
 button {
   width: 100%;
   padding: 8px;
@@ -95,4 +146,5 @@ button {
   cursor: pointer;
 }
 button:hover {
+  background-color: rgb(33, 59, 33);
 }
