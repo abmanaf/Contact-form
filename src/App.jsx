@@ -8,26 +8,48 @@ function App() {
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div className='form-container'>
+        <div>
+        <h2 style={{marginBottom: '1em'}}>Contact Us</h2>
+        <div className='full-name'>
+          <div> 
+            <label htmlFor="">First Name *</label> <br />
+            <input type="text" name="first-name" id="first_name" />
+          </div>
+          <div>
+            <label htmlFor="">Last Name *</label> <br />
+            <input type="text" name="last-name" id="last_name" />
+          </div>
+        </div>
+        <div className='email'>
+          <label htmlFor="">Email Address *</label> <br />
+          <input type="text" name="email" id="email" />
+        </div>
+      
+        <div class="query-type">
+        <label for="query-type"> Query Type <span class="required-input">*</span></label>
+        <div class="radio-container" style={{marginTop: '8px'}}>
+          <div class="radio-option">
+            <input type="radio" id="general-enquiry" name="query-type" value="general-enquiry"/>
+            <label for="general-enquiry"> General Enquiry</label>
+          </div>
+          <div class="radio-option">
+            <input type="radio" id="support" name="query-type" value="support"/>
+            <label for="support"> Support</label>
+          </div>
+        </div>
+        <p class="form-alert" style={{display: 'none'}}>Please select a query type</p>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+      <div className='text-area'>
+        <label htmlFor="">Message *</label>
+        <textarea name="" id="" cols="5" rows="5"></textarea>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <div className='check-box'>
+        <input type="checkbox" name="checkbox" id="check-box" /> <span style={{marginLeft: '1em'}}>I consent to be bein contacted by the team</span>
+      </div>
+      <button>Submit</button>
+        </div>
+      </div>
     </>
   )
 }
