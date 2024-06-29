@@ -1,42 +1,98 @@
-#root {
-  max-width: 1280px;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Karla", sans-serif;
+  font-size: 16px;
+}
+:root {
+  /*
+  Primary
+  */
+  --Green-lighter: hsl(148, 38%, 91%);
+  --Green-medium: hsl(169, 82%, 27%);
+  --Red: hsl(0, 66%, 54%);
+  /*
+  Neutral
+  */
+  --White: hsl(0, 0%, 100%);
+  --Grey-medium: hsl(186, 15%, 59%);
+  --Grey-darker: hsl(187, 24%, 22%);
+}
+body {
+  background-color: var(--Green-lighter);
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+}
+h2 {
+  color: var(--Grey-darker);
+}
+.form-container {
+  background-color: var(--White);
+  width: 32rem;
+  height: 36rem;
+  display: flex;
+  justify-content: center;
+  margin-top: 5em;
+  padding: 1em;
+  border-radius: 0.5em;
+}
+.full-name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 8px;
+  border: 1px solid var(--Grey-medium);
+  border-radius: 5px;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+input:focus,
+textarea:focus {
+  outline: 1px solid var(--Green-medium);
+  border: 1px solid var(--Green-medium);
 }
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.sub-query-type {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
 }
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.full-name,
+.email,
+.query-type,
+.text-area,
+.check-box {
+  margin-bottom: 15px;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.radio-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
 }
-
-.card {
-  padding: 2em;
+.radio-option {
+  border: 1px solid var(--Green-medium);
+  width: 50%;
+  padding: 8px;
+  border-radius: 5px;
 }
-
-.read-the-docs {
-  color: #888;
+button {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid var(--Grey-medium);
+  background-color: var(--Green-medium);
+  color: var(--White);
+  border-radius: 5px;
+  cursor: pointer;
+}
+button:hover {
 }
