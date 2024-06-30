@@ -66,7 +66,10 @@ function App() {
 
       </div>
       <div className='check-box'>
-        <input type="checkbox" name="checkbox" id="check-box" onChange={(e)=>handleChecked(e.target.checked)}/> <span style={{marginLeft: '1em'}}>I consent to be bein contacted by the team</span> <br />
+        <div style={{display: 'flex'}}>
+        <input type="checkbox" name="checkbox" id="check-box" onChange={(e)=>handleChecked(e.target.checked)}/> <span style={{marginLeft: '1em',display: 'flex'}}>I consent to be bein contacted by the team *</span>
+        </div>
+         <br />
         <span className="error">To submit this form please consent to being contacted</span>
       </div>
       <button>Submit</button>
