@@ -60,7 +60,7 @@ h2 {
 }
 .form-container {
   background-color: var(--White);
-  width: 32rem;
+  width: 35rem;
   display: flex;
   justify-content: center;
   margin-top: 1.5em;
@@ -147,4 +147,33 @@ button {
 }
 button:hover {
   background-color: rgb(33, 59, 33);
+}
+.error {
+  color: red;
+  display: none;
+}
+@media only screen and (max-width: 767px) {
+  .form-container {
+    background-color: var(--White);
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    margin-top: 1em;
+    padding: 1em;
+    border-radius: 0.9em;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .full-name {
+    flex-direction: column;
+  }
+
+  .radio-container {
+    flex-direction: column;
+  }
+
+  .radio-option {
+    width: 100%;
+  }
 }
