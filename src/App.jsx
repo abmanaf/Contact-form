@@ -118,7 +118,7 @@ function App() {
                   id="support"
                   name="query-type"
                   value="support"
-                  checked={queryType === "general-enquiry"}
+                  checked={queryType === "support"}
 
                   onChange={(e) => setQueryType(e.target.value)}
                 />
