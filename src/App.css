@@ -5,6 +5,7 @@
   font-family: "Karla", sans-serif;
   font-size: 16px;
 }
+
 @font-face {
   font-family: "Karla";
   font-style: normal;
@@ -107,7 +108,7 @@ textarea:focus {
   align-items: center;
   gap: 1em;
 }
-
+.full-name,
 .email,
 .query-type,
 .text-area,
@@ -139,27 +140,6 @@ textarea:focus {
   background-color: var(--Green-lighter);
 }
 
-/* Uncommented for better radio and checkbox appearance */
-/*
-input[type="radio"],
-input[type="checkbox"] {
-  appearance: none;
-  width: 16px;
-  height: 16px;
-  margin-right: 8px;
-  border: 1px solid var(--Grey-medium);
-  border-radius: 50%;
-  outline: none;
-  cursor: pointer;
-}
-
-input[type="radio"]:checked,
-input[type="checkbox"]:checked {
-  background-color: var(--Green-medium);
-  border: 1px solid var(--Green-medium);
-}
-*/
-
 button {
   width: 100%;
   padding: 8px;
@@ -179,24 +159,26 @@ button:hover {
 }
 
 @media only screen and (max-width: 767px) {
+  body {
+    height: auto;
+    padding: 20px;
+  }
   .form-container {
     width: 90%;
     margin-left: auto;
     margin-right: auto;
-    display: flex;
-    justify-content: center;
-    margin-top: 9em;
-    padding: 1em;
-    border-radius: 0.9em;
+    padding: 1.5em;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
   }
 
   .full-name {
     flex-direction: column;
-    gap: 0;
+    gap: 1em;
   }
 
   .radio-container {
     flex-direction: column;
+    gap: 1em;
   }
 
   .radio-option {
