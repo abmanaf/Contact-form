@@ -183,10 +183,16 @@ button:hover {
     width: 90%;
     margin-left: auto;
     margin-right: auto;
+    display: flex;
+    justify-content: center;
+    margin-top: 9em;
+    padding: 1em;
+    border-radius: 0.9em;
   }
 
   .full-name {
     flex-direction: column;
+    gap: 0;
   }
 
   .radio-container {
