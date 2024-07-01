@@ -35,7 +35,23 @@ function App() {
 
     if (isValid) {
       alert("Form submitted successfully!");
+      
+      setFirstName("");
+      setLastName("");
+      setEmail("");
+      setMessage("");
+      setQueryType("");
+      setConsent(false);
+      setError({
+        firstName: false,
+        lastName: false,
+        email: false,
+        message: false,
+        queryType: false,
+        consent: false,
+      });
     }
+      
   };
 
   return (
@@ -90,6 +106,8 @@ function App() {
                   id="general-enquiry"
                   name="query-type"
                   value="general-enquiry"
+                  checked={queryType === "general-enquiry"}
+
                   onChange={(e) => setQueryType(e.target.value)}
                 />
                 <label htmlFor="general-enquiry"> General Enquiry</label>
@@ -100,6 +118,8 @@ function App() {
                   id="support"
                   name="query-type"
                   value="support"
+                  checked={queryType === "general-enquiry"}
+
                   onChange={(e) => setQueryType(e.target.value)}
                 />
                 <label htmlFor="support"> Support</label>
@@ -125,6 +145,8 @@ function App() {
                 type="checkbox"
                 name="checkbox"
                 id="check-box"
+
+                checked={consent}
                 onChange={(e) => setConsent(e.target.checked)}
               />
               <span style={{ marginLeft: '1em', display: 'flex' }}>
