@@ -160,20 +160,9 @@ button {
 button:hover {
   background-color: rgb(33, 59, 33);
 }
-.error {
-  color: red;
-  display: none;
-}
 
-input.error {
-  border: 1px solid red;
-  background-color: #ffe0dd;
-}
-
-span.visible {
-  display: block;
+.error-message {
   color: red;
-  font-size: 0.9em;
 }
 
 @media only screen and (max-width: 767px) {
