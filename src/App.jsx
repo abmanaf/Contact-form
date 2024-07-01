@@ -63,7 +63,7 @@ function App() {
         toastOptions={{
           duration: 4000,
           style: {
-            background: "var( --Green-medium)",
+            background: "var(--Grey-darker)",
             color: "#fff",
           },
         }}
