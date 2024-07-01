@@ -3,7 +3,6 @@
   flex-direction: column;
   width: 100%;
   color: var(--white);
-  background-color: var(--grey-900);
   gap: 1rem;
   margin-inline: auto;
 }
