@@ -129,13 +129,25 @@ textarea:focus {
 .radio-option:active {
   background-color: var(--Green-lighter);
 }
+/*
+input[type="radio"],
+input[type="checkbox"] {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+  border: 1px solid var(--Grey-medium);
+  border-radius: 50%;
+  outline: none;
+  cursor: pointer;
+}
 
 input[type="radio"]:checked,
 input[type="checkbox"]:checked {
   background-color: var(--Green-medium);
   border: 1px solid var(--Green-medium);
 }
-
+*/
 button {
   width: 100%;
   padding: 8px;
@@ -152,6 +164,18 @@ button:hover {
   color: red;
   display: none;
 }
+
+input.error {
+  border: 1px solid red;
+  background-color: #ffe0dd;
+}
+
+span.visible {
+  display: block;
+  color: red;
+  font-size: 0.9em;
+}
+
 @media only screen and (max-width: 767px) {
   .form-container {
     background-color: var(--White);
