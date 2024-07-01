@@ -48,25 +48,28 @@
   --Grey-medium: hsl(186, 15%, 59%);
   --Grey-darker: hsl(187, 24%, 22%);
 }
+
 body {
   background-color: var(--Green-lighter);
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 auto;
+  height: 100vh;
+  margin: 0;
 }
+
 h2 {
   color: var(--Grey-darker);
 }
+
 .form-container {
   background-color: var(--White);
   width: 35rem;
-  display: flex;
-  justify-content: center;
-  margin-top: 1.5em;
   padding: 1em;
   border-radius: 0.9em;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
+
 .full-name {
   display: flex;
   justify-content: center;
@@ -91,11 +94,13 @@ textarea:hover {
   outline: 1px solid var(--Green-medium);
   border: 1px solid var(--Green-medium);
 }
+
 input:focus,
 textarea:focus {
   outline: 1px solid var(--Green-medium);
   border: 1px solid var(--Green-medium);
 }
+
 .sub-query-type {
   display: flex;
   justify-content: center;
@@ -109,12 +114,14 @@ textarea:focus {
 .check-box {
   margin-bottom: 15px;
 }
+
 .radio-container {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 1em;
 }
+
 .radio-option {
   border: 1px solid var(--Green-medium);
   width: 50%;
@@ -122,13 +129,17 @@ textarea:focus {
   border-radius: 5px;
   cursor: pointer;
 }
+
 .radio-option:hover {
   outline: 1px solid var(--Green-medium);
   border: 1px solid var(--Green-medium);
 }
+
 .radio-option:active {
   background-color: var(--Green-lighter);
 }
+
+/* Uncommented for better radio and checkbox appearance */
 /*
 input[type="radio"],
 input[type="checkbox"] {
@@ -148,6 +159,7 @@ input[type="checkbox"]:checked {
   border: 1px solid var(--Green-medium);
 }
 */
+
 button {
   width: 100%;
   padding: 8px;
@@ -157,6 +169,7 @@ button {
   border-radius: 5px;
   cursor: pointer;
 }
+
 button:hover {
   background-color: rgb(33, 59, 33);
 }
@@ -167,13 +180,7 @@ button:hover {
 
 @media only screen and (max-width: 767px) {
   .form-container {
-    background-color: var(--White);
     width: 90%;
-    display: flex;
-    justify-content: center;
-    margin-top: 1em;
-    padding: 1em;
-    border-radius: 0.9em;
     margin-left: auto;
     margin-right: auto;
   }
