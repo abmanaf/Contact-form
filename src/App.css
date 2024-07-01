@@ -108,7 +108,6 @@ textarea:focus {
   align-items: center;
   gap: 1em;
 }
-.full-name,
 .email,
 .query-type,
 .text-area,
@@ -173,7 +172,7 @@ button:hover {
 
   .full-name {
     flex-direction: column;
-    gap: 1em;
+    gap: 0;
   }
 
   .radio-container {
