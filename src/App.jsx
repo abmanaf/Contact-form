@@ -1,83 +1,143 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from 'react';
+import './App.css';
 
 function App() {
-  const[firstName, setFirstName] = useState("");
-  const[lastName, setLastName] = useState("");
-  const[email, setEmail] = useState("");
-  const[message, setMessage] = useState("")
-  const[error, setError] = useState(false);
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [error, setError] = useState({
+    firstName: false,
+    lastName: false,
+    email: false,
+    message: false,
+    queryType: false,
+    consent: false,
+  });
+  const [queryType, setQueryType] = useState("");
+  const [consent, setConsent] = useState(false);
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-  }
+    const newError = {
+      firstName: firstName.trim() === "",
+      lastName: lastName.trim() === "",
+      email: !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email),
+      message: message.trim() === "",
+      queryType: queryType === "",
+      consent: !consent,
+    };
+
+    setError(newError);
+
+    const isValid = !Object.values(newError).some(value => value);
+
+    if (isValid) {
+      // Handle successful form submission here
+      alert("Form submitted successfully!");
+    }
+  };
 
   return (
     <>
       <div className='form-container'>
         <div>
-        <h2 style={{marginBottom: '1em'}}>Contact Us</h2>
-        <form action="" onSubmit={handleSubmit}>
-        <div className='full-name'>
-          <div> 
-            <label htmlFor="">First Name *</label> <br />
-            <input type="text" name="first-name" id="first_name" className={`${error ? 'error' : ''}`} value={firstName} onChange={(e)=> setFirstName(e.target.value)} />
-            <span className={`${error ? 'visible' : ''}`}>This field is required</span>
-          </div>
-          <div>
-            <label htmlFor="">Last Name *</label> <br />
-            <input type="text" name="last-name" id="last_name" value={lastName} className={`${error ? 'error' : ''}`}  onChange={(e)=> setLastName(e.target.value)} />
-            <span className={`${error ? 'visible' : ''}`}>This field is required</span>
-
-          </div>
-        </div>
-        <div className='email'>
-          <label htmlFor="">Email Address *</label> <br />
-          <input type="text" name="email" id="email" value={email} className={`${error ? 'error' : ''}`} onChange={(e)=> setEmail(e.target.value)} />
-          <span className={`${error ? 'visible' : ''}`}>Please enter a valid email address</span>
-
-        </div>
-      
-        <div class="query-type">
-        <label for="query-type"> Query Type <span class="required-input">*</span></label>
-        <div class="radio-container" style={{marginTop: '8px'}}>
-          <div class="radio-option">
-            <input type="radio" id="general-enquiry" name="query-type" value="general-enquiry"/>
-            <label for="general-enquiry"> General Enquiry</label>
-
-          </div>
-          <div class="radio-option">
-            <input type="radio" id="support" name="query-type" value="support"/>
-            <label for="support"> Support</label>
-
-          </div>
-
-        </div>
-        <span className={`${error ? 'visible' : ''}`}>Please select a query type</span>
-
-        <p class="form-alert" style={{display: 'none'}}>Please select a query type</p>
-      </div>
-      <div className='text-area'>
-        <label htmlFor="">Message *</label>
-        <textarea name="" id="" cols="5" rows="5" value={message} className={`${error ? 'error' : ''}`} onChange={(e)=>setMessage(e.target.value)}/>
-        <span className={`${error ? 'visible' : ''}`}>This field is required</span>
-
-      </div>
-      <div className='check-box'>
-        <div style={{display: 'flex'}}>
-        <input type="checkbox" name="checkbox" id="check-box" onChange={(e)=>handleChecked(e.target.checked)}/> <span style={{marginLeft: '1em',display: 'flex'}}>I consent to be bein contacted by the team *</span>
-        </div>
-         <br />
-        <span className="error">To submit this form please consent to being contacted</span>
-      </div>
-      <button>Submit</button>
-      </form>
+          <h2 style={{ marginBottom: '1em' }}>Contact Us</h2>
+          <form onSubmit={handleSubmit}>
+            <div className='full-name'>
+              <div>
+                <label htmlFor="first_name">First Name *</label> <br />
+                <input
+                  type="text"
+                  name="first-name"
+                  id="first_name"
+                  value={firstName}
+                  onChange={(e) => setFirstName(e.target.value)}
+                />
+                <span className={error.firstName ? 'visible' : ''}>This field is required</span>
+              </div>
+              <div>
+                <label htmlFor="last_name">Last Name *</label> <br />
+                <input
+                  type="text"
+                  name="last-name"
+                  id="last_name"
+                  value={lastName}
+                  onChange={(e) => setLastName(e.target.value)}
+                />
+                <span className={error.lastName ? 'visible' : ''}>This field is required</span>
+              </div>
+            </div>
+            <div className='email'>
+              <label htmlFor="email">Email Address *</label> <br />
+              <input
+                type="text"
+                name="email"
+                id="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <span className={error.email ? 'visible' : ''}>Please enter a valid email address</span>
+            </div>
+            <div className="query-type">
+              <label htmlFor="query-type"> Query Type <span className="required-input">*</span></label>
+              <div className="radio-container" style={{ marginTop: '8px' }}>
+                <div className="radio-option">
+                  <input
+                    type="radio"
+                    id="general-enquiry"
+                    name="query-type"
+                    value="general-enquiry"
+                    onChange={(e) => setQueryType(e.target.value)}
+                  />
+                  <label htmlFor="general-enquiry"> General Enquiry</label>
+                </div>
+                <div className="radio-option">
+                  <input
+                    type="radio"
+                    id="support"
+                    name="query-type"
+                    value="support"
+                    onChange={(e) => setQueryType(e.target.value)}
+                  />
+                  <label htmlFor="support"> Support</label>
+                </div>
+              </div>
+              <span className={error.queryType ? 'visible' : ''}>Please select a query type</span>
+            </div>
+            <div className='text-area'>
+              <label htmlFor="message">Message *</label>
+              <textarea
+                name="message"
+                id="message"
+                cols="5"
+                rows="5"
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+              />
+              <span className={error.message ? 'visible' : ''}>This field is required</span>
+            </div>
+            <div className='check-box'>
+              <div style={{ display: 'flex' }}>
+                <input
+                  type="checkbox"
+                  name="checkbox"
+                  id="check-box"
+                  onChange={(e) => setConsent(e.target.checked)}
+                />
+                <span style={{ marginLeft: '1em', display: 'flex' }}>
+                  I consent to being contacted by the team *
+                </span>
+              </div>
+              <span className={error.consent ? 'visible' : ''}>To submit this form please consent to being contacted</span>
+            </div>
+            <button type="submit">Submit</button>
+          </form>
         </div>
       </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
