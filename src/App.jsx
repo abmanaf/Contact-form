@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import './App.css';
+import Toast from './Toast';
+import toast, { Toaster } from "react-hot-toast";
 
 function App() {
   const [firstName, setFirstName] = useState("");
@@ -34,7 +36,7 @@ function App() {
     const isValid = !Object.values(newError).some(value => value);
 
     if (isValid) {
-      alert("Form submitted successfully!");
+      toast((t) => <Toast onClick={() => toast.dismiss(t.id)} />);
       
       setFirstName("");
       setLastName("");
@@ -51,114 +53,123 @@ function App() {
         consent: false,
       });
     }
-      
   };
 
   return (
-    <div className='form-container'>
-      <div>
-        <h2 style={{ marginBottom: '1em' }}>Contact Us</h2>
-        <form onSubmit={handleSubmit}>
-          <div className='full-name'>
-            <div>
-              <label htmlFor="first_name">First Name *</label> <br />
-              <input
-                type="text"
-                name="first-name"
-                id="first_name"
-                value={firstName}
-                onChange={(e) => setFirstName(e.target.value)}
-              />
-              {error.firstName && <span className='error-message'>This field is required</span>}
-              <span style={{visibility: 'hidden'}} className='error-message'>This field is required</span>
-            </div>
-            <div>
-              <label htmlFor="last_name">Last Name *</label> <br />
-              <input
-                type="text"
-                name="last-name"
-                id="last_name"
-                value={lastName}
-                onChange={(e) => setLastName(e.target.value)}
-              />
-              {error.lastName && <span className='error-message'>This field is required</span>}
-              <span style={{visibility: 'hidden'}} className='error-message'>This field is required</span>
-
-            </div>
-          </div>
-          <div className='email'>
-            <label htmlFor="email">Email Address *</label> <br />
-            <input
-              type="text"
-              name="email"
-              id="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            {error.email && <span className='error-message'>Please enter a valid email address</span>}
-          </div>
-          <div className="query-type">
-            <label htmlFor="query-type"> Query Type <span className="required-input">*</span></label>
-            <div className="radio-container" style={{ marginTop: '8px' }}>
-              <div className="radio-option">
+    <>
+     <Toaster
+        position="top-center"
+        reverseOrder={false}
+        toastOptions={{
+          duration: 4000,
+          style: {
+            background: "var( --Green-medium)",
+            color: "#fff",
+          },
+        }}
+      />
+      <div className='form-container'>
+        <div>
+          <h2 style={{ marginBottom: '1em' }}>Contact Us</h2>
+          <form onSubmit={handleSubmit}>
+            <div className='full-name'>
+              <div>
+                <label htmlFor="first_name">First Name *</label> <br />
                 <input
-                  type="radio"
-                  id="general-enquiry"
-                  name="query-type"
-                  value="general-enquiry"
-                  checked={queryType === "general-enquiry"}
-
-                  onChange={(e) => setQueryType(e.target.value)}
+                  type="text"
+                  name="first-name"
+                  id="first_name"
+                  value={firstName}
+                  onChange={(e) => setFirstName(e.target.value)}
                 />
-                <label htmlFor="general-enquiry"> General Enquiry</label>
+                {error.firstName && <span className='error-message'>This field is required</span>}
+                <span style={{visibility: 'hidden'}} className='error-message'>This field is required</span>
               </div>
-              <div className="radio-option">
+              <div>
+                <label htmlFor="last_name">Last Name *</label> <br />
                 <input
-                  type="radio"
-                  id="support"
-                  name="query-type"
-                  value="support"
-                  checked={queryType === "support"}
-
-                  onChange={(e) => setQueryType(e.target.value)}
+                  type="text"
+                  name="last-name"
+                  id="last_name"
+                  value={lastName}
+                  onChange={(e) => setLastName(e.target.value)}
                 />
-                <label htmlFor="support"> Support</label>
+                {error.lastName && <span className='error-message'>This field is required</span>}
+                <span style={{visibility: 'hidden'}} className='error-message'>This field is required</span>
+
               </div>
             </div>
-            {error.queryType && <span className='error-message'>Please select a query type</span>}
-          </div>
-          <div className='text-area'>
-            <label htmlFor="message">Message *</label>
-            <textarea
-              name="message"
-              id="message"
-              cols="5"
-              rows="5"
-              value={message}
-              onChange={(e) => setMessage(e.target.value)}
-            />
-            {error.message && <span className='error-message'>This field is required</span>}
-          </div>
-          <div className='check-box'>
-            <div style={{ display: 'flex' }}>
+            <div className='email'>
+              <label htmlFor="email">Email Address *</label> <br />
               <input
-                type="checkbox"
-                name="checkbox"
-                id="check-box"
-
-                checked={consent}
-                onChange={(e) => setConsent(e.target.checked)}
+                type="text"
+                name="email"
+                id="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
-              <span style={{ marginLeft: '1em', display: 'flex' }}>
-                I consent to being contacted by the team *
-              </span>
+              {error.email && <span className='error-message'>Please enter a valid email address</span>}
             </div>
-            {error.consent && <span className='error-message'>To submit this form please consent to being contacted</span>}
-          </div>
-          <button type="submit">Submit</button>
-        </form>
+            <div className="query-type">
+              <label htmlFor="query-type"> Query Type <span className="required-input">*</span></label>
+              <div className="radio-container" style={{ marginTop: '8px' }}>
+                <div className="radio-option">
+                  <input
+                    type="radio"
+                    id="general-enquiry"
+                    name="query-type"
+                    value="general-enquiry"
+                    checked={queryType === "general-enquiry"}
+                    onChange={(e) => setQueryType(e.target.value)}
+                  />
+                  <label htmlFor="general-enquiry"> General Enquiry</label>
+                </div>
+                <div className="radio-option">
+                  <input
+                    type="radio"
+                    id="support"
+                    name="query-type"
+                    value="support"
+                    checked={queryType === "support"}
+                    onChange={(e) => setQueryType(e.target.value)}
+                  />
+                  <label htmlFor="support"> Support</label>
+                </div>
+              </div>
+              {error.queryType && <span className='error-message'>Please select a query type</span>}
+            </div>
+            <div className='text-area'>
+              <label htmlFor="message">Message *</label>
+              <textarea
+                name="message"
+                id="message"
+                cols="5"
+                rows="5"
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+              />
+              {error.message && <span className='error-message'>This field is required</span>}
+            </div>
+            <div className='check-box'>
+              <div style={{ display: 'flex' }}>
+                <input
+                  type="checkbox"
+                  name="checkbox"
+                  id="check-box"
+                  checked={consent}
+                  onChange={(e) => setConsent(e.target.checked)}
+                />
+                <span style={{ marginLeft: '1em', display: 'flex' }}>
+                  I consent to being contacted by the team *
+                </span>
+              </div>
+              {error.consent && <span className='error-message'>To submit this form please consent to being contacted</span>}
+            </div>
+            <button type="submit">Submit</button>
+          </form>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 
