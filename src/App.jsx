@@ -31,6 +31,7 @@ function App() {
       consent: !consent,
     };
 
+    
     setError(newError);
 
     const isValid = !Object.values(newError).some(value => value);
