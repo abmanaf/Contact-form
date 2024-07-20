@@ -30,9 +30,9 @@ function App() {
       queryType: queryType === "",
       consent: !consent,
     };
-    setError(newError);
-
     
+    setError(newError);
+  
     const isValid = !Object.values(newError).some(value => value);
 
     if (isValid) {
