@@ -32,6 +32,7 @@ function App() {
     };
     setError(newError);
 
+    
     const isValid = !Object.values(newError).some(value => value);
 
     if (isValid) {
