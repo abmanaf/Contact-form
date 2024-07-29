@@ -5,7 +5,7 @@ const Toast = () => {
   return (
     <div className="toast-container">
       <h2 className="toast-title">
-        <img src="/assets/images/icon-success-check.svg" />
+        <img src="/assets/images/icon-success-check.svg" alt="icon-success-check"/>
         <span style={{color: 'white'}}>Message Sent!</span>
       </h2>
       <p style={{fontSize: '10px'}} className="toast-desc">
